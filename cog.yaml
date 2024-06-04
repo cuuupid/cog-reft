@@ -1,0 +1,12 @@
+build:
+    gpu: true
+    python_packages:
+        - git+https://github.com/stanfordnlp/pyreft.git
+        - transformers
+        - torch
+    python_version: "3.11"
+    run:
+        - curl -o /usr/local/bin/pget -L "https://github.com/replicate/pget/releases/latest/download/pget_$(uname -s)_$(uname -m)"
+        - chmod +x /usr/local/bin/pget
+predict: predict.py:Predictor
+train: train.py:train
